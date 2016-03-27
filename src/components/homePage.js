@@ -9,7 +9,7 @@ var HomePage = React.createClass({
 			// JSX can't use class="" because that's a reserved word... the compiled html will be class="" though
 			<div className="jumbotron"> 
 				<h1>Simple Chord Map</h1>
-				<p>inspired by mugglinworks.com/chordmaps</p>
+				<p>visualize chord progressions that work</p>
 			</div>
 		);
 	}
