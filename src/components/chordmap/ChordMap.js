@@ -6,22 +6,7 @@ var React = require('react');
 var ChordMap = React.createClass({
 
 	render: function() {
-		var keysWrapper = {
-			float: 'left',
-			textAlign: 'center',
-			padding: '20px'
-		};
-
-		var button = {
-			fontSize: '18pt',
-			marginTop: '5px',
-			marginBottom: '5px',
-			paddingRight: '10px',
-			paddingLeft: '10px',
-			fontWeight: 'bold',
-			color: 'navy'
-		};
-
+		
 		var mapWrapper = {
 			position: 'relative',
 			float: 'left',
@@ -68,26 +53,6 @@ var ChordMap = React.createClass({
 
 		return (
 			<div>
-				<div style={keysWrapper}>
-					<button style={button}>C</button><br />
-					<button style={button}>C#</button>
-					<button style={button}>Db</button><br />
-					<button style={button}>D</button><br />
-					<button style={button}>D#</button>
-					<button style={button}>Eb</button><br />
-					<button style={button}>E</button><br />
-					<button style={button}>F</button><br />
-					<button style={button}>F#</button>
-					<button style={button}>Gb</button><br />
-					<button style={button}>G</button><br />
-					<button style={button}>G#</button>
-					<button style={button}>Ab</button><br />
-					<button style={button}>A</button><br />
-					<button style={button}>A#</button>
-					<button style={button}>Bb</button><br />
-					<button style={button}>B</button><br />
-				</div>
-				
 				<div style={mapWrapper}>
 					<div id="chord_two_1"
 						className={css.getClasses({

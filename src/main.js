@@ -2,6 +2,7 @@ $ = jQuery = require('jquery');
 var React = require('react');
 var HomePage = require('./components/homePage');
 var About = require('./components/about/aboutPage');
+var ChordMapPage = require('./components/chordmap/chordMapPage');
 var Header = require('./components/common/header');
 
 (function(win){
@@ -11,6 +12,9 @@ var Header = require('./components/common/header');
 		render: function () {
 			var Child;
 			switch (this.props.route) {
+				case 'chordMapPage':
+					Child = ChordMapPage;
+					break;
 				case 'about':
 					Child = About;
 					break;

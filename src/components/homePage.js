@@ -1,8 +1,9 @@
 "use strict";
 
 var React = require('react');
-var ChordMap = require('./chordmap/chordMap');
+
 var HomePage = React.createClass({
+	
 
 	render: function() {
 		return (
@@ -10,9 +11,8 @@ var HomePage = React.createClass({
 			<div>
 				<div className="jumbotron"> 
 					<h2>Simple Chord Map</h2>
-					<p>visualize chord progressions that work</p>
+					<p> a simple tool for visualizing chord progressions that work</p>
 				</div>
-				<ChordMap selectedKey="C" />
 			</div>
 		);
 	}
