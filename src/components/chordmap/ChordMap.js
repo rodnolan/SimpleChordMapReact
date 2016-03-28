@@ -2,8 +2,19 @@
 var SmartCSS = require('smart-css');
 var css = new SmartCSS();
 var React = require('react');
+var KeysApi = require('../../api/keysApi');
 
 var ChordMap = React.createClass({
+
+	getInitialState: function() {
+		return {
+			chordsForKey: []
+		};
+	},
+
+	componentWillMount: function() {
+		this.setState({ chordsForKey: KeysApi.getChordsForKeyName("D") });
+	},
 
 	render: function() {
 		
@@ -54,6 +65,7 @@ var ChordMap = React.createClass({
 		return (
 			<div>
 				<div style={mapWrapper}>
+
 					<div id="chord_two_1"
 						className={css.getClasses({
 							chordLetter: true,
@@ -61,8 +73,9 @@ var ChordMap = React.createClass({
 							row1: true,
 							minorChord: true
 						})}>
-					2m
+					{this.state.chordsForKey[1].chordName}
 					</div>
+					
 					<div id="chord_five_1"
 						className={css.getClasses({
 							chordLetter: true,
@@ -70,8 +83,9 @@ var ChordMap = React.createClass({
 							row2: true,
 							majorChord: true
 						})}>
-					5
+					{this.state.chordsForKey[4].chordName}
 					</div>
+					
 					<div id="chord_three"
 						className={css.getClasses({
 							chordLetter: true,
@@ -79,8 +93,9 @@ var ChordMap = React.createClass({
 							row3: true,
 							minorChord: true
 						})}>
-					3m
+					{this.state.chordsForKey[2].chordName}
 					</div>
+					
 					<div id="chord_six"
 						className={css.getClasses({
 							chordLetter: true,
@@ -88,8 +103,9 @@ var ChordMap = React.createClass({
 							row4: true,
 							minorChord: true
 						})}>
-					6m
+					{this.state.chordsForKey[5].chordName}
 					</div>
+
 					<div id="chord_four"
 						className={css.getClasses({
 							chordLetter: true,
@@ -97,8 +113,9 @@ var ChordMap = React.createClass({
 							row5: true,
 							majorChord: true
 						})}>
-					4
+					{this.state.chordsForKey[3].chordName}
 					</div>
+
 					<div id="chord_two_2"
 						className={css.getClasses({
 							chordLetter: true,
@@ -106,8 +123,9 @@ var ChordMap = React.createClass({
 							row6: true,
 							minorChord: true
 						})}>
-					2m
+					{this.state.chordsForKey[1].chordName}
 					</div>
+
 					<div id="chord_five_2"
 						className={css.getClasses({
 							chordLetter: true,
@@ -115,7 +133,7 @@ var ChordMap = React.createClass({
 							row7: true,
 							majorChord: true
 						})}>
-					5
+					{this.state.chordsForKey[4].chordName}
 					</div>
 					
 					<div id="chord_root"
@@ -125,8 +143,9 @@ var ChordMap = React.createClass({
 							row8: true,
 							rootChord: true
 						})}>
-					1
+					{this.state.chordsForKey[0].chordName}
 					</div>
+
 				</div>
 			</div>
 		);
