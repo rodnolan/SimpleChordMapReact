@@ -2,19 +2,17 @@
 var SmartCSS = require('smart-css');
 var css = new SmartCSS();
 var React = require('react');
-var KeysApi = require('../../api/keysApi');
 
 
 var ChordMapKeys = React.createClass({
+	propTypes: {
+		allKeys: React.PropTypes.array.isRequired
+	},
 
-	getInitialState: function() {
+	getDefaultProps: function () {
 		return {
 			allKeys: []
 		};
-	},
-
-	componentWillMount: function() {
-		this.setState({ allKeys: KeysApi.getAllKeys() });
 	},
 
 	render: function() {
@@ -78,7 +76,7 @@ var ChordMapKeys = React.createClass({
 
 		return (
 			<div style={keysWrapper}>
-				{this.state.allKeys.map(createKeyRowButtons, this)}
+				{this.props.allKeys.map(createKeyRowButtons, this)}
 			</div>
 		);
 	}
