@@ -1,6 +1,8 @@
 "use strict";
 
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var HomePage = React.createClass({
 	
@@ -11,7 +13,8 @@ var HomePage = React.createClass({
 			<div>
 				<div className="jumbotron"> 
 					<h2>Simple Chord Map</h2>
-					<p> a simple tool for visualizing chord progressions that work</p>
+					<p>a simple tool for visualizing chord progressions that work</p>
+					<Link to="about" className="btn- btn-primary btn-lg">Learn More</Link>
 				</div>
 			</div>
 		);
