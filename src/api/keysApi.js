@@ -17,8 +17,13 @@ var KeysApi = {
 	},
 
 	getChordsForKeyName: function(keyName) {
-		var keyChords = _.find(chordsByKey, {keyName: keyName});
-		return _clone(keyChords.chords);
+		if (keyName) {
+			var keyChords = _.find(chordsByKey, {keyName: keyName});
+			console.log("found the following chords for the key of " + keyName);
+			console.log(keyChords);
+
+			return _clone(keyChords.chords);
+		}
 	}
 };
 

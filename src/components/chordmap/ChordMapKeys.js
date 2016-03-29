@@ -2,6 +2,8 @@
 var SmartCSS = require('smart-css');
 var css = new SmartCSS();
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 
 var ChordMapKeys = React.createClass({
@@ -32,7 +34,20 @@ var ChordMapKeys = React.createClass({
 			color: 'navy'
 		};
 
-		SmartCSS.injectStyles();
+		var getLetterOnly = function (names, index) {
+			var key = names[index];
+			return key.replace('+', '').replace('-', '');
+		};
+		var getAccidentalOnly = function (names, index) {
+			var key = names[index];
+			if (key.indexOf('+') > -1) {
+				return '#';
+			} else if (key.indexOf('-') > -1) {
+				return 'b';
+			} else {
+				return '';
+			}
+		};
 
 		var createKeyRow = function(theKey) {
 			return (
@@ -47,27 +62,30 @@ var ChordMapKeys = React.createClass({
 			var keyButtons;
 			if (key.names.length === 1) {
 				
-				keyButtons = <section key={key.id}>
-					<a href={"/#chordMapPage/" + key.names[0]}>
-						<button style={button}>
-							{key.names[0]}
-						</button>
-					</a><br />
+				keyButtons = <section>
+					<button style={button} key={key.names[0]}>
+						<Link style={button} to="chordmapForKey" params={{keyname: key.names[0]}}>
+							{getLetterOnly(key.names, 0)}<sup>{getAccidentalOnly(key.names, 0)}</sup>
+						</Link>
+					</button>
+					<br />
 				</section>;
 
 			} else if (key.names.length === 2) {
 
-				keyButtons = <section key={key.id}>
-					<a href={"/#chordMapPage/" + key.names[0]}>
-						<button style={button}>
-							{key.names[0]}
-						</button>
-					</a>
-					<a href={"/#chordMapPage/" + key.names[1]}>
-						<button style={button}>
-							{key.names[1]}
-						</button>
-					</a><br />
+				keyButtons = <section>
+					<button style={button} key={key.id}>
+						<Link style={button} to="chordmapForKey" params={{keyname: key.names[0]}}>
+							{getLetterOnly(key.names, 0)}<sup>{getAccidentalOnly(key.names, 0)}</sup>
+						</Link>
+					</button>
+					&nbsp;
+					<button style={button} key={key.id} key={key.names[1]}>
+						<Link to="chordmapForKey" params={{keyname: key.names[1]}}>
+							{getLetterOnly(key.names, 1)}<sup>{getAccidentalOnly(key.names, 1)}</sup>
+						</Link>
+					</button>
+					<br />
 				</section>;
 			}
 

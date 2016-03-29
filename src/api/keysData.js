@@ -7,7 +7,7 @@ module.exports = {
 		},	
 		{
 			id: '1', 
-			names: ['C#', 'Db']
+			names: ['C+', 'D-']
 		},	
 		{
 			id: '2', 
@@ -15,7 +15,7 @@ module.exports = {
 		},	
 		{
 			id: '3', 
-			names: ['D#', 'Eb']
+			names: ['D+', 'E-']
 		},	
 		{
 			id: '4', 
@@ -27,7 +27,7 @@ module.exports = {
 		},	
 		{
 			id: '6', 
-			names: ['F#', 'Gb']
+			names: ['F+', 'G-']
 		},	
 		{
 			id: '7', 
@@ -35,7 +35,7 @@ module.exports = {
 		},	
 		{
 			id: '8', 
-			names: ['G#', 'Ab']
+			names: ['G+', 'A-']
 		},	
 		{
 			id: '9', 
@@ -43,7 +43,7 @@ module.exports = {
 		},	
 		{
 			id: '10', 
-			names: ['A#', 'Bb']
+			names: ['A+', 'B-']
 		},	
 		{
 			id: '11', 
@@ -65,7 +65,19 @@ module.exports = {
 			]
 		},
 		{
-			keyName: "Db",
+			keyName: "C+",
+			chords: [
+				{scaleDegree: 1, chordName: "C#"},
+				{scaleDegree: 2, chordName: "D#m"},
+				{scaleDegree: 3, chordName: "E#m"},
+				{scaleDegree: 4, chordName: "F#"},
+				{scaleDegree: 5, chordName: "G#"},
+				{scaleDegree: 6, chordName: "A#m"},
+				{scaleDegree: 7, chordName: "B#dim"}
+			]
+		},
+		{
+			keyName: "D-",
 			chords: [
 				{scaleDegree: 1, chordName: "Db"},
 				{scaleDegree: 2, chordName: "Ebm"},
@@ -89,7 +101,19 @@ module.exports = {
 			]
 		},
 		{
-			keyName: "Eb",
+			keyName: "D+",
+			chords: [
+				{scaleDegree: 1, chordName: "D#"},
+				{scaleDegree: 2, chordName: "E#m"},
+				{scaleDegree: 3, chordName: "F##m"},
+				{scaleDegree: 4, chordName: "G#"},
+				{scaleDegree: 5, chordName: "A#"},
+				{scaleDegree: 6, chordName: "B#m"},
+				{scaleDegree: 7, chordName: "C#dim"}
+			]
+		},
+		{
+			keyName: "E-",
 			chords: [
 				{scaleDegree: 1, chordName: "Eb"},
 				{scaleDegree: 2, chordName: "Fm"},
@@ -125,7 +149,19 @@ module.exports = {
 			]
 		},
 		{
-			keyName: "Gb",
+			keyName: "F+",
+			chords: [
+				{scaleDegree: 1, chordName: "F#"},
+				{scaleDegree: 2, chordName: "G#m"},
+				{scaleDegree: 3, chordName: "A#m"},
+				{scaleDegree: 4, chordName: "B"},
+				{scaleDegree: 5, chordName: "C#"},
+				{scaleDegree: 6, chordName: "D#m"},
+				{scaleDegree: 7, chordName: "E#dim"}
+			]
+		},
+		{
+			keyName: "G-",
 			chords: [
 				{scaleDegree: 1, chordName: "Gb"},
 				{scaleDegree: 2, chordName: "Abm"},
@@ -149,7 +185,19 @@ module.exports = {
 			]
 		},
 		{
-			keyName: "Ab",
+			keyName: "G+",
+			chords: [
+				{scaleDegree: 1, chordName: "G#"},
+				{scaleDegree: 2, chordName: "A#m"},
+				{scaleDegree: 3, chordName: "B#m"},
+				{scaleDegree: 4, chordName: "C#"},
+				{scaleDegree: 5, chordName: "D#"},
+				{scaleDegree: 6, chordName: "E#m"},
+				{scaleDegree: 7, chordName: "F##dim"}
+			]
+		},
+		{
+			keyName: "A-",
 			chords: [
 				{scaleDegree: 1, chordName: "Ab"},
 				{scaleDegree: 2, chordName: "Bbm"},
@@ -173,7 +221,7 @@ module.exports = {
 			]
 		},
 		{
-			keyName: "Bb",
+			keyName: "B-",
 			chords: [
 				{scaleDegree: 1, chordName: "Bb"},
 				{scaleDegree: 2, chordName: "Cm"},

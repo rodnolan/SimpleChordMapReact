@@ -5,20 +5,7 @@ var React = require('react');
 
 var ChordMap = React.createClass({
 	propTypes: {
-		chords: React.PropTypes.arrayOf(
-			React.PropTypes.object(
-				{
-					scaleDegree: React.PropTypes.number,
-					chordName: React.PropTypes.string
-				}
-			)
-		).isRequired
-	},
-
-	getDefaultProps: function () {
-		return {
-			chords: []
-		};
+		chords: React.PropTypes.array.isRequired
 	},
 
 	componentWillMount: function () {
@@ -33,7 +20,7 @@ var ChordMap = React.createClass({
 
 			css.setClass('.rootChord', {
 				color: 'DarkBlue', 
-				fontSize: '124px'
+				fontSize: '120px'
 			}, {className: 'rootChord'});
 			
 			css.setClass('.majorChord', {
@@ -46,16 +33,17 @@ var ChordMap = React.createClass({
 				fontSize: '48px'
 			}, {className: 'minorChord'});
 
-			css.setClass('.col1', { left: '50px' }, {className: 'col1'});
+			css.setClass('.col0', { left: '25px' }, {className: 'col0'});
+			css.setClass('.col1', { left: '45px' }, {className: 'col1'});
 			css.setClass('.col2', { left: '175px' }, {className: 'col2'});
 
 			css.setClass('.row1', { top: '30px' }, {className: 'row1'});
 			css.setClass('.row2', { top: '90px' }, {className: 'row2'});
-			css.setClass('.row3', { top: '165px' }, {className: 'row3'});
+			css.setClass('.row3', { top: '160px' }, {className: 'row3'});
 			css.setClass('.row4', { top: '225px' }, {className: 'row4'});
-			css.setClass('.row5', { top: '265px' }, {className: 'row5'});
+			css.setClass('.row5', { top: '250px' }, {className: 'row5'});
 			css.setClass('.row6', { top: '350px' }, {className: 'row6'});
-			css.setClass('.row7', { top: '400px' }, {className: 'row7'});
+			css.setClass('.row7', { top: '385px' }, {className: 'row7'});
 			css.setClass('.row8', { top: '500px' }, {className: 'row8'});
 			
 			SmartCSS.injectStyles();
@@ -155,12 +143,13 @@ var ChordMap = React.createClass({
 					<div id="chord_root"
 						className={css.getClasses({
 							chordLetter: true, 
-							col1: true, 
+							col0: true, 
 							row8: true,
 							rootChord: true
 						})}>
 					{this.props.chords[0].chordName}
 					</div>
+
 
 				</div>
 			</div>
