@@ -12,20 +12,20 @@ var ChordMapPage = React.createClass({
 	getInitialState: function() {
 		return {
 			allKeys: [],
-			chordsForSelectedKey: []
+			chords: []
 		};
 	},
 
 	componentWillMount: function() {	
 		this.setState({ allKeys: KeysApi.getAllKeys() });	
-		this.setState({ chordsForSelectedKey: KeysApi.getChordsForKeyName("C") });
+		this.setState({ chords: KeysApi.getChordsForKeyName("C") });
 	},
 
 	render: function() {
 		return (
 			<section>
 				<ChordMapKeys allKeys={this.state.allKeys} />
-				<ChordMap chords={this.state.chordsForSelectedKey} />
+				<ChordMap chords={this.state.chords} />
 			</section>
 		);
 	}
