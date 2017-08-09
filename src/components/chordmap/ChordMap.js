@@ -20,37 +20,54 @@ var ChordMap = React.createClass({
 
 			css.setClass('.rootChord', {
 				color: 'DarkBlue', 
-				fontSize: '120px'
+				fontSize: '100px'
 			}, {className: 'rootChord'});
 			
 			css.setClass('.majorChord', {
 				color: 'blue',
-				fontSize: '72px'
+				fontSize: '64px'
 			}, {className: 'majorChord'});
 			
 			css.setClass('.minorChord', {
 				color: 'brown',
-				fontSize: '48px'
+				fontSize: '36px'
 			}, {className: 'minorChord'});
 
-			css.setClass('.col0', { left: '25px' }, {className: 'col0'});
+			css.setClass('.col0', { left: '30px' }, {className: 'col0'});
 			css.setClass('.col1', { left: '45px' }, {className: 'col1'});
-			css.setClass('.col2', { left: '175px' }, {className: 'col2'});
+			css.setClass('.col2', { left: '170px' }, {className: 'col2'});
 
 			css.setClass('.row1', { top: '30px' }, {className: 'row1'});
 			css.setClass('.row2', { top: '90px' }, {className: 'row2'});
 			css.setClass('.row3', { top: '160px' }, {className: 'row3'});
 			css.setClass('.row4', { top: '225px' }, {className: 'row4'});
-			css.setClass('.row5', { top: '250px' }, {className: 'row5'});
+			css.setClass('.row5', { top: '265px' }, {className: 'row5'});
 			css.setClass('.row6', { top: '350px' }, {className: 'row6'});
-			css.setClass('.row7', { top: '385px' }, {className: 'row7'});
-			css.setClass('.row8', { top: '500px' }, {className: 'row8'});
+			css.setClass('.row7', { top: '390px' }, {className: 'row7'});
+			css.setClass('.row8', { top: '520px' }, {className: 'row8'});
 			
 			SmartCSS.injectStyles();
 		}
 	},
 
+	getAccidental: function (chord) {
+		let accidentalMarkup = null;
+		if (chord.accidental !== '') {
+			accidentalMarkup = <sup>{chord.accidental}</sup>;
+		}
+		return accidentalMarkup;
+	},
+
+	getMinor: function (chord) {
+		let minorMarkup = null;
+		if (chord.isMinor) {
+			minorMarkup = 'm';
+		}
+		return minorMarkup;
+	},
+
 	render: function() {
+		let chords = this.props.chords;
 		var mapWrapper = {
 			position: 'relative',
 			float: 'left',
@@ -70,7 +87,9 @@ var ChordMap = React.createClass({
 							row1: true,
 							minorChord: true
 						})}>
-					{this.props.chords[1].chordName}
+					{chords[1].chord.letter}
+					{this.getAccidental(chords[1].chord)}
+					{this.getMinor(chords[1].chord)}
 					</div>
 					
 
@@ -81,7 +100,9 @@ var ChordMap = React.createClass({
 							row2: true,
 							majorChord: true
 						})}>
-					{this.props.chords[4].chordName}
+					{chords[4].chord.letter}
+					{this.getAccidental(chords[4].chord)}
+					{this.getMinor(chords[4].chord)}
 					</div>
 					
 
@@ -92,7 +113,9 @@ var ChordMap = React.createClass({
 							row3: true,
 							minorChord: true
 						})}>
-					{this.props.chords[2].chordName}
+					{chords[2].chord.letter}
+					{this.getAccidental(chords[2].chord)}
+					{this.getMinor(chords[2].chord)}
 					</div>
 					
 
@@ -103,7 +126,9 @@ var ChordMap = React.createClass({
 							row4: true,
 							minorChord: true
 						})}>
-					{this.props.chords[5].chordName}
+					{chords[5].chord.letter}
+					{this.getAccidental(chords[5].chord)}
+					{this.getMinor(chords[5].chord)}
 					</div>
 
 
@@ -114,7 +139,9 @@ var ChordMap = React.createClass({
 							row5: true,
 							majorChord: true
 						})}>
-					{this.props.chords[3].chordName}
+					{chords[3].chord.letter}
+					{this.getAccidental(chords[3].chord)}
+					{this.getMinor(chords[3].chord)}
 					</div>
 
 
@@ -125,7 +152,9 @@ var ChordMap = React.createClass({
 							row6: true,
 							minorChord: true
 						})}>
-					{this.props.chords[1].chordName}
+					{chords[1].chord.letter}
+					{this.getAccidental(chords[1].chord)}
+					{this.getMinor(chords[1].chord)}
 					</div>
 
 
@@ -136,7 +165,9 @@ var ChordMap = React.createClass({
 							row7: true,
 							majorChord: true
 						})}>
-					{this.props.chords[4].chordName}
+					{chords[4].chord.letter}
+					{this.getAccidental(chords[4].chord)}
+					{this.getMinor(chords[4].chord)}
 					</div>
 					
 
@@ -147,7 +178,9 @@ var ChordMap = React.createClass({
 							row8: true,
 							rootChord: true
 						})}>
-					{this.props.chords[0].chordName}
+					{chords[0].chord.letter}
+					{this.getAccidental(chords[0].chord)}
+					{this.getMinor(chords[0].chord)}
 					</div>
 
 
