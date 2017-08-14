@@ -17,8 +17,14 @@ var ChordMapKeys = React.createClass({
 		};
 	},
 
-	render: function() {
+	getInitialState: function() {
+		return {
+			keys: this.props.allKeys.reverse()
+		};
+	},
 
+	render: function() {
+		var keys = this.state.keys;
 		var keysWrapper = {
 			float: 'left',
 			textAlign: 'center',
@@ -34,10 +40,35 @@ var ChordMapKeys = React.createClass({
 			color: 'navy'
 		};
 
+		/**
+		 * The flat and sharp key names are stored in the data with the minus sign for flat 
+		 * and the plus sign for sharp. This function removes those symbols for display purposes. 
+		 * This is used in conjunction with the getAccidentalOnly() function to represent the 
+		 * key name. 
+		 * 
+		 * This was done mainly to disambiguate the use of the letter 'b' (the name of a key 
+		 * AND the symbol for the flat accidental) 
+		 *  
+		 * @param {array} names an array containing the key names; + means sharp and - means flat
+		 * @param {number} index the index to operate on
+		 */
 		var getLetterOnly = function (names, index) {
 			var key = names[index];
 			return key.replace('+', '').replace('-', '');
 		};
+
+		/**
+		 * The flat and sharp key names are stored in the data with the minus sign for flat 
+		 * and the plus sign for sharp. This function extracts those symbols and converts 
+		 * them to # for sharp and b for flat. This is used in conjunction with the 
+		 * getAccidentalOnly() function. 
+		 * 
+		 * This was done mainly to disambiguate the use of the letter 'b' (the name of a key 
+		 * AND the symbol for the flat accidental) 
+		 *  
+		 * @param {array} names an array containing the chord names with + for sharp and - for flat
+		 * @param {number} index the index to operate on
+		 */
 		var getAccidentalOnly = function (names, index) {
 			var key = names[index];
 			if (key.indexOf('+') > -1) {
@@ -49,15 +80,15 @@ var ChordMapKeys = React.createClass({
 			}
 		};
 
-		var createKeyRow = function(theKey) {
-			return (
-				<tr key={theKey.id}>
-					<td>{theKey.id}</td>
-					<td>{theKey.keyNames[0]}</td>
-				</tr>
-			);
-		};
-
+		/**
+		 * creates a row containing either one or two buttons
+		 * one button is created for the natural keys
+		 * two buttons are created for the sharp/flat keys
+		 * 
+		 * @param {array} key an array of either 1 or 2 elements 
+		 * one, the name for the natural keys
+		 * two, the names of the equivalent sharp/flat keys
+		 */
 		var createKeyRowButtons = function(key) {
 			var keyButtons;
 			if (key.names.length === 1) {
@@ -94,7 +125,7 @@ var ChordMapKeys = React.createClass({
 
 		return (
 			<div style={keysWrapper}>
-				{this.props.allKeys.map(createKeyRowButtons, this)}
+				{keys.map(createKeyRowButtons, this)}
 			</div>
 		);
 	}

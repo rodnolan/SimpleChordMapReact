@@ -51,7 +51,7 @@ var ChordMap = React.createClass({
 	},
 
 	getAccidental: function (chord) {
-		let accidentalMarkup = null;
+		var accidentalMarkup = null;
 		if (chord.accidental !== '') {
 			accidentalMarkup = <sup>{chord.accidental}</sup>;
 		}
@@ -59,7 +59,7 @@ var ChordMap = React.createClass({
 	},
 
 	getMinor: function (chord) {
-		let minorMarkup = null;
+		var minorMarkup = null;
 		if (chord.isMinor) {
 			minorMarkup = 'm';
 		}
@@ -67,7 +67,7 @@ var ChordMap = React.createClass({
 	},
 
 	render: function() {
-		let chords = this.props.chords;
+		var chords = this.props.chords;
 		var mapWrapper = {
 			position: 'relative',
 			float: 'left',
